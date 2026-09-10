@@ -1,0 +1,34 @@
+experiment:
+  name: randaugment_resnet18
+
+seed: 42
+
+dataset:
+  name: cifar10
+  data_dir: ./data
+  num_classes: 10
+
+model:
+  name: resnet18
+
+training:
+  epochs: 100
+  batch_size: 128
+
+optimizer:
+  name: sgd
+  learning_rate: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+
+scheduler:
+  name: cosine
+
+augmentation:
+  name: randaugment
+  num_ops: 2
+  magnitude: 9
+# Fixed across methods and training seeds.
+validation:
+  size: 5000
+  seed: 2026

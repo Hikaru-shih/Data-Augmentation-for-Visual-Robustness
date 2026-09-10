@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Datasets and model binaries are archived separately from source control.
+data/
+checkpoints/
