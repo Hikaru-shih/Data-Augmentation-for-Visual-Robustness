@@ -1,5 +1,5 @@
 experiment:
-  name: cifar1000_baseline_resnet18
+  name: cifar100_baseline_resnet18
 
 seed: 42
 

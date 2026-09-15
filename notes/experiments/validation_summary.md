@@ -74,4 +74,4 @@ See [research report](../../report/research_findings.md) for methods, results, p
 
 ## CIFAR-100 implementation ready (2026-09-15)
 
-The [transfer workflow](cifar100_execution.md) is implemented and passed 23 tests plus syntax checks. No new dataset was downloaded or scored in this step. Run preparation first, then the nine-run batch as documented. Completed experiment count remains 18 until those runs finish.
+The [transfer workflow](cifar100_execution.md) is implemented and passed 24 tests plus syntax checks. No new dataset was downloaded or scored in this step. Run preparation first, then the nine-run batch as documented. Completed experiment count remains 18 until those runs finish.

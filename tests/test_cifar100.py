@@ -28,6 +28,13 @@ class TinyCIFAR100:
 
 
 class CIFAR100Tests(unittest.TestCase):
+    def test_experiment_names_match_batch_and_comparison(self):
+        for method in ("baseline", "cutmix", "cutmix_p05"):
+            config = yaml.safe_load(Path(f"configs/cifar100_{method}.yaml").read_text())
+            self.assertEqual(config["experiment"]["name"], f"cifar100_{method}_resnet18")
+            self.assertEqual(config["dataset"]["name"], "cifar100")
+            self.assertEqual(config["dataset"]["num_classes"], 100)
+
     def test_stratified_split(self):
         labels = np.repeat(np.arange(100), 5)
         train, val = stratified_indices(labels, 2, 2026)

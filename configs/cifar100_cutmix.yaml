@@ -1,5 +1,5 @@
 experiment:
-  name: cifar1000_cutmix_resnet18
+  name: cifar100_cutmix_resnet18
 
 seed: 42
 
