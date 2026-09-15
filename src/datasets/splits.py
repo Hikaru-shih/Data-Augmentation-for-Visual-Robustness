@@ -29,10 +29,14 @@ def training_loaders(config):
             raise ValueError("Unknown mixing parameter")
         name, aug = "baseline", {}
     root = config["dataset"]["data_dir"]
-    train = CIFAR10(root, train=True, download=True, transform=get_train_transform(name, **aug))
-    validation = CIFAR10(root, train=True, download=False, transform=get_test_transform())
     split = config["validation"]
-    train_ids, val_ids = split_indices(len(train), split["size"], split["seed"])
+    if config["dataset"]["name"] == "cifar100":
+        from src.datasets.cifar100 import prepare
+        train, validation, train_ids, val_ids = prepare(config, name, aug)
+    else:
+        train = CIFAR10(root, train=True, download=True, transform=get_train_transform(name, **aug))
+        validation = CIFAR10(root, train=True, download=False, transform=get_test_transform())
+        train_ids, val_ids = split_indices(len(train), split["size"], split["seed"])
     kwargs = dict(batch_size=config["training"]["batch_size"],
                   num_workers=config["training"].get("num_workers", 4),
                   pin_memory=torch.cuda.is_available(), worker_init_fn=seed_worker)
@@ -44,7 +48,12 @@ def training_loaders(config):
 
 
 def test_loader(config):
-    dataset = CIFAR10(config["dataset"]["data_dir"], train=False, download=True,
-                      transform=get_test_transform())
+    if config["dataset"]["name"] == "cifar100":
+        from torchvision.datasets import CIFAR100
+        from src.datasets.cifar100 import test_transform
+        dataset = CIFAR100(config["dataset"]["data_dir"], train=False, download=True, transform=test_transform(config))
+    else:
+        dataset = CIFAR10(config["dataset"]["data_dir"], train=False, download=True,
+                          transform=get_test_transform())
     return DataLoader(dataset, batch_size=config["training"]["batch_size"], shuffle=False,
                       num_workers=config["training"].get("num_workers", 4))

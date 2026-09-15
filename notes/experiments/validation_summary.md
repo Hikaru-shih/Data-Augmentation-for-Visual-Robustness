@@ -1,4 +1,4 @@
-# Validation protocol: seed 42 results and multi-seed plan
+# Validation protocol: completed experiments and current status
 
 ## Completed seed 42
 
@@ -32,7 +32,7 @@ Seeds 42, 43 and 44 are complete for all five methods. Values below are mean ± 
 
 Source: results/comparisons/multiseed-42-43-44/mean_std.csv and per_seed.csv. Deltas use unrounded means. The mCA ordering is identical in all three seeds: AugMix Transform > RandAugment > Mixup > Baseline > CutMix. CutMix has the highest clean accuracy in all three seeds. These are consistent descriptive observations across the tested seeds, not a formal statistical significance claim or evidence of a causal mechanism.
 
-Next: analyze per-corruption and severity patterns across seeds, generate summary figures with variability, and then review related work to refine an extension hypothesis. No additional training is needed for those analyses. The execution instructions below are retained for reproducibility; the listed runs are already complete.
+The original five-method corruption analysis and initial literature audit are complete. The CutMix p=0.5 ablation is also complete; see [its results and next steps](cutmix_probability_results.md). Its paired per-corruption and severity analysis is complete. Next, consolidate the report and predefine an independent generalization check before any new training. The execution instructions below are retained for reproducibility; the listed runs are already complete.
 
 ## Three-seed replication design (completed)
 
@@ -59,3 +59,19 @@ python3 -m scripts.summarize_multiseed
 ```
 
 Outputs: results/comparisons/multiseed-42-43-44/per_seed.csv and mean_std.csv. Aggregation refuses missing runs, changed settings across seeds, different split files, incomplete histories or invalid evaluation provenance. Missing runs are never silently excluded.
+
+## CutMix probability ablation completed (verified 2026-09-14)
+
+Three additional runs bring the completed validation-protocol experiments to 18. CutMix p=0.5 achieves clean accuracy 95.56 +/- 0.30%, mCA 73.56 +/- 0.67%, and Gaussian/shot noise accuracy 48.76 +/- 3.56%. Relative to p=1, paired noise accuracy improves by 13.21 +/- 5.60 percentage points. All three seeds improve noise accuracy and mCA, but noise remains below baseline in every seed. See [the full results](cutmix_probability_results.md) for definitions, paired statistics and limitations.
+
+## Detailed probability analysis completed (2026-09-14)
+
+See [ablation findings](cutmix_probability_results.md). The noise improvements are not uniform across noise types or monotonic with severity; impulse noise exceeds baseline on average across severities in all seeds, while Gaussian/shot remain below it. New tables and three figures are under results/analysis/cutmix-probability/.
+
+## Report completed (2026-09-14)
+
+See [research report](../../report/research_findings.md) for methods, results, paired ablation, figures and limitations. A [cross-dataset validation draft](transfer_validation_plan.md) proposes CIFAR-100 / CIFAR-100-C with three methods and three seeds. This is not implemented or started; current completed run count remains 18.
+
+## CIFAR-100 implementation ready (2026-09-15)
+
+The [transfer workflow](cifar100_execution.md) is implemented and passed 23 tests plus syntax checks. No new dataset was downloaded or scored in this step. Run preparation first, then the nine-run batch as documented. Completed experiment count remains 18 until those runs finish.

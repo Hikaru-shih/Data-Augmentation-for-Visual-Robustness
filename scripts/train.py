@@ -31,7 +31,10 @@ def main(default_config=None):
     config = load_config(args.config)
     if args.seed is not None:
         config["seed"] = args.seed
-    for section, expected in (("dataset", "cifar10"), ("model", "resnet18"),
+    dataset_name = config["dataset"]["name"]
+    if dataset_name not in {"cifar10", "cifar100"} or config["dataset"]["num_classes"] != (100 if dataset_name == "cifar100" else 10):
+        raise ValueError("Dataset name and number of classes must agree")
+    for section, expected in (("model", "resnet18"),
                               ("optimizer", "sgd"), ("scheduler", "cosine")):
         if config[section]["name"] != expected:
             raise ValueError(f"Unsupported {section}: {config[section]['name']}")
@@ -48,6 +51,8 @@ def main(default_config=None):
             raise ValueError("CutMix probability must be in [0, 1]")
     key, result_dir, checkpoint_dir = reserve_run(config["experiment"]["name"], config["seed"], args.run_id)
     config["run"] = {"key": key, "selection": "validation_accuracy", "protocol": "validation-v1"}
+    if dataset_name == "cifar100":
+        config["run"]["protocol"] = "cifar100-transfer-v1"
     config["run"]["source_sha256"] = snapshot_source(result_dir)
     (result_dir / "config.yaml").write_text(yaml.safe_dump(config), encoding="utf-8")
     try:
@@ -61,6 +66,8 @@ def main(default_config=None):
                        git_revision=revision, git_status=status)
     (result_dir / "environment.json").write_text(json.dumps(environment, indent=2), encoding="utf-8")
     train, validation, indices = training_loaders(config)
+    # Loaders resolve train-only normalization before saving effective settings.
+    (result_dir / "config.yaml").write_text(yaml.safe_dump(config), encoding="utf-8")
     (result_dir / "split_indices.json").write_text(json.dumps(indices), encoding="utf-8")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = get_resnet18(config["dataset"]["num_classes"]).to(device)

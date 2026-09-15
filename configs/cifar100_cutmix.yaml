@@ -1,0 +1,35 @@
+experiment:
+  name: cifar1000_cutmix_resnet18
+
+seed: 42
+
+dataset:
+  name: cifar100
+  data_dir: ./data
+  num_classes: 100
+  corruption_dir: ./data/CIFAR-100-C
+
+model:
+  name: resnet18
+
+training:
+  epochs: 100
+  batch_size: 128
+
+optimizer:
+  name: sgd
+  learning_rate: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+
+scheduler:
+  name: cosine
+
+augmentation:
+  name: cutmix
+  alpha: 1.0
+# Fixed across methods and training seeds.
+validation:
+  strategy: stratified
+  size: 5000
+  seed: 2026

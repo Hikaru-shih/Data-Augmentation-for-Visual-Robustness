@@ -60,7 +60,7 @@ def main():
     plt.xlabel("Mean Accuracy (%)")
     plt.ylabel("Corruption")
     plt.title(
-        f"{experiment_name}: Robustness on CIFAR-10-C"
+        f"{experiment_name}: Corruption Robustness"
     )
 
     plt.grid(

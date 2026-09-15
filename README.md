@@ -1,6 +1,6 @@
 # Data Augmentation for Visual Robustness
 
-Current extension: [CutMix probability ablation and change record](notes/experiments/cutmix_probability.md). Run `bash scripts/run_cutmix_p05.sh` in WSL for the three new p=0.5 seeds; existing controls are reused. New training runs preserve source archives and hashes in addition to Git metadata. See the record for historical provenance limitations.
+Completed extension: [CutMix probability ablation results and next steps](notes/experiments/cutmix_probability_results.md). All three p=0.5 runs are complete; no retraining is needed. Implementation details: [change record](notes/experiments/cutmix_probability.md). Run `bash scripts/run_cutmix_p05.sh` in WSL for the three new p=0.5 seeds; existing controls are reused. New training runs preserve source archives and hashes in addition to Git metadata. See the record for historical provenance limitations.
 
 ## Run the experiments (validation-v1)
 
@@ -552,6 +552,23 @@ The current results suggest that AugMix Transform provides the strongest corrupt
 
 * [x] Verify the results across multiple random seeds (42, 43, 44)
 * [x] Calculate mean and sample standard deviation for clean accuracy and mean corruption accuracy
-* [ ] Analyze performance by corruption category and severity
-* [ ] Review related literature against the observed patterns
-* [ ] Refine a focused research question for the extension stage
+* [x] Analyze the original five methods by corruption category and severity
+* [x] Initial literature audit against observed patterns
+* [x] Complete the CutMix probability ablation (p=0.5 versus p=1, three seeds)
+* [x] Analyze paired per-corruption and severity differences for the probability ablation
+* [ ] Consolidate the report and define an independent generalization check
+
+## Research report and proposed validation
+
+The [research report](report/research_findings.md) consolidates the 18 completed CIFAR-10 runs. The [CIFAR-100 transfer validation plan](notes/experiments/transfer_validation_plan.md) is a proposal only: implementation is complete and tested; the nine new training runs have not started. See [CIFAR-100 execution instructions](notes/experiments/cifar100_execution.md).
+
+### CIFAR-100 transfer workflow (ready, not yet trained)
+
+In WSL from the repository root, run each command only after the previous succeeds:
+
+~~~bash
+bash scripts/prepare_cifar100.sh
+bash scripts/run_cifar100_transfer.sh
+~~~
+
+Preparation downloads and verifies the official archive; the second command trains nine new models, evaluates and plots results. Old CIFAR-10 runs are reused only for historical reporting, never as CIFAR-100 controls.

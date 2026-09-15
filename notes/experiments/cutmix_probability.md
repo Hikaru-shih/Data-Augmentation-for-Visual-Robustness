@@ -1,6 +1,6 @@
 # CutMix probability ablation — execution and change record
 
-Implementation date: 2026-09-10. Status: implemented and tested, training not started by the assistant.
+Implementation date: 2026-09-10. Status: all three runs completed by the user; verified 2026-09-14. See [results and next steps](cutmix_probability_results.md).
 
 ## Fixed design
 
@@ -24,7 +24,7 @@ Primary endpoint: equally weighted mean accuracy over Gaussian and shot noise, f
 bash scripts/run_cutmix_p05.sh
 ```
 
-Only three new training runs are required. Outputs are under results/cutmix_p05_resnet18/seed_<seed>/validation-v1; checkpoints use the corresponding checkpoints path. Logs: results/logs/cutmix_p05_seed_<seed>.log. Comparison: results/analysis/cutmix-probability/{per_seed,mean_std,paired_deltas,paired_mean_std}.csv. mean_std files use two header rows (metric/statistic).
+All three additional training runs are complete; the command above is retained for reproducibility and need not be rerun. Outputs are under results/cutmix_p05_resnet18/seed_<seed>/validation-v1; checkpoints use the corresponding checkpoints path. Logs: results/logs/cutmix_p05_seed_<seed>.log. Comparison: results/analysis/cutmix-probability/{per_seed,mean_std,paired_deltas,paired_mean_std}.csv. mean_std files use two header rows (metric/statistic).
 
 To repeat only comparison:
 

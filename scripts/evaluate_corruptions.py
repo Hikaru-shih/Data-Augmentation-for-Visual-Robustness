@@ -50,7 +50,6 @@ def main():
     print("Experiment:", experiment_name)
     print("Device:", device)
 
-    model = get_resnet18(num_classes=10).to(device)
 
     checkpoint_path = (
         Path("checkpoints")
@@ -70,6 +69,30 @@ def main():
     )
     checkpoint_digest = file_hash(checkpoint_path)
     config = checkpoint["config"]
+    model = get_resnet18(num_classes=config["dataset"]["num_classes"]).to(device)
+    dataset_name = config["dataset"]["name"]
+    corruption_root = Path(config["dataset"].get("corruption_dir", str(Path(config["dataset"]["data_dir"]) / "CIFAR-10-C")))
+    dataset_kwargs = {}
+    if dataset_name == "cifar100":
+        from src.datasets.cifar100 import normalization
+        normalization(config)
+        norm = config["dataset"]["normalization"]
+        dataset_kwargs = dict(num_classes=100, mean=norm["mean"], std=norm["std"])
+        if "corruption_dir" not in config["dataset"]:
+            raise ValueError("CIFAR-100 requires an explicit corruption_dir")
+    data_hashes = {}
+    if dataset_name == "cifar100":
+        # Validate identity against official clean-test fine labels before scoring.
+        import numpy as np
+        from torchvision.datasets import CIFAR100
+        clean = CIFAR100(config["dataset"]["data_dir"], train=False, download=False)
+        labels = np.load(corruption_root / "labels.npy")
+        expected = np.asarray(clean.targets)
+        if labels.shape == (50000,):
+            expected = np.tile(expected, 5)
+        if not np.array_equal(labels, expected):
+            raise ValueError("Corruption labels do not match CIFAR-100 fine test labels")
+        data_hashes = {name: file_hash(corruption_root / name) for name in ["labels.npy"] + [c + ".npy" for c in CORRUPTIONS]}
 
     model.load_state_dict(
         checkpoint["model_state_dict"]
@@ -102,7 +125,7 @@ def main():
     summary_results = []
 
     print()
-    print("CIFAR-10-C Robustness Evaluation")
+    print(f"{dataset_name.upper()}-C Robustness Evaluation")
     print("=" * 60)
 
     for corruption in CORRUPTIONS:
@@ -115,9 +138,10 @@ def main():
         for severity in range(1, 6):
 
             dataset = CIFAR10C(
-                root=Path(config["dataset"]["data_dir"]) / "CIFAR-10-C",
+                root=corruption_root,
                 corruption=corruption,
                 severity=severity,
+                **dataset_kwargs,
             )
 
             loader = DataLoader(
@@ -219,6 +243,8 @@ def main():
         raise RuntimeError("Checkpoint changed during evaluation; rerun evaluation")
     (output_dir / "metadata.json").write_text(json.dumps({
         "checkpoint_sha256": checkpoint_digest,
+        "dataset": dataset_name,
+        "data_sha256": data_hashes,
         "epoch": checkpoint["epoch"],
         "protocol": config.get("run", {}).get("protocol", "legacy-test-selected"),
         "files": {path.name: file_hash(path) for path in (detail_path, summary_path)},
