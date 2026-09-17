@@ -1,0 +1,10 @@
+method,seed,run,clean,mca,noise,applied_fraction
+baseline,42,baseline_resnet18/seed_42/validation-v1,94.09,73.73253333333332,54.246,0.0
+cutmix_p1,42,cutmix_resnet18/seed_42/validation-v1,95.72,70.72973333333333,33.818,1.0
+cutmix_p05,42,cutmix_p05_resnet18/seed_42/validation-v1,95.43,74.31213333333334,52.830999999999996,0.4996875
+baseline,43,baseline_resnet18/seed_43/validation-v1,94.32,73.86053333333334,52.626999999999995,0.0
+cutmix_p1,43,cutmix_resnet18/seed_43/validation-v1,95.82,71.05466666666668,34.403000000000006,1.0
+cutmix_p05,43,cutmix_p05_resnet18/seed_43/validation-v1,95.35,73.05279999999999,47.18899999999999,0.5022443181818181
+baseline,44,baseline_resnet18/seed_44/validation-v1,94.85,73.36280000000001,48.995,0.0
+cutmix_p1,44,cutmix_resnet18/seed_44/validation-v1,95.77,71.63973333333334,38.415,1.0
+cutmix_p05,44,cutmix_p05_resnet18/seed_44/validation-v1,95.9,73.30133333333333,46.26100000000001,0.4993465909090909

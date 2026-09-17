@@ -1,0 +1,10 @@
+method,seed,run,clean,mca,noise,applied_fraction
+baseline,42,cifar100_baseline_resnet18/seed_42/validation-v1,76.65,47.51893333333334,25.627000000000002,0.0
+cutmix_p1,42,cifar100_cutmix_resnet18/seed_42/validation-v1,79.01,46.21373333333334,15.628000000000004,1.0
+cutmix_p05,42,cifar100_cutmix_p05_resnet18/seed_42/validation-v1,78.24,47.80213333333333,21.91,0.4996875
+baseline,43,cifar100_baseline_resnet18/seed_43/validation-v1,75.86,47.85733333333334,26.771000000000004,0.0
+cutmix_p1,43,cifar100_cutmix_resnet18/seed_43/validation-v1,78.96,45.68266666666666,14.499999999999996,1.0
+cutmix_p05,43,cifar100_cutmix_p05_resnet18/seed_43/validation-v1,78.36,47.529066666666665,21.122999999999998,0.5022443181818181
+baseline,44,cifar100_baseline_resnet18/seed_44/validation-v1,76.43,47.95026666666667,26.458999999999996,0.0
+cutmix_p1,44,cifar100_cutmix_resnet18/seed_44/validation-v1,79.14,46.8816,17.419,1.0
+cutmix_p05,44,cifar100_cutmix_p05_resnet18/seed_44/validation-v1,78.44,47.41466666666666,19.921,0.4993465909090909

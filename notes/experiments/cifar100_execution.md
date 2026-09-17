@@ -1,3 +1,5 @@
+最新狀態（2026-09-17）：CIFAR-100 九組已完成並通過比較驗證，共 27 組完成實驗。請見[跨資料集整合結果](cross_dataset_results.md)。下方先前日期的執行紀錄保留作歷史紀錄。
+
 # CIFAR-100 transfer: implementation and execution record
 
 Date: 2026-09-15. Implementation and synthetic tests complete. No CIFAR-100 model has been trained or scored by this change. The existing 18 CIFAR-10 runs remain separate.
@@ -39,3 +41,7 @@ Source snapshot and Git state record the implementation used; do not edit source
 - tests/test_cifar100.py covers balanced disjoint deterministic split, exclusion of holdout from normalization, synthetic loaders, 100-class forward/backward, and corruption label 99/100 boundaries.
 
 No hyperparameters were chosen by looking at CIFAR-100-C model scores. Performance and runtime remain unknown until the user runs the batch. The main endpoint is the paired p=0.5 minus p=1 Gaussian/shot noise difference, with clean accuracy and full mCA as secondary metrics. Report negative or inconsistent results too.
+
+## Interruption audit (2026-09-16)
+
+Seed 42 completed all three methods including evaluation and plots. Baseline seed 43 completed 76 logged epochs before CUDA illegal memory access; a subsequent batch restart hit FileExistsError. No training process was active during recovery. Preserved the interrupted result directory, best checkpoint and original log under interrupted_runs/cifar100_baseline_seed43_20260916-162925/. The original seed 43 run paths are now free for a full restart. No completed runs were deleted. Current GPU matrix multiplication check passed; this does not establish the cause of the earlier CUDA error or guarantee long-run stability. Rerun bash scripts/run_cifar100_transfer.sh; it skips completed seed 42 training/evaluation and starts baseline seed 43 from epoch 1. Remaining planned training: six runs.

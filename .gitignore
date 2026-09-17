@@ -220,3 +220,6 @@ __marimo__/
 # Datasets and model binaries are archived separately from source control.
 data/
 checkpoints/
+
+# Preserved failed-run data and model binaries
+interrupted_runs/

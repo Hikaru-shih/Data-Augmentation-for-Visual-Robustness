@@ -1,3 +1,5 @@
+最新狀態（2026-09-17）：CIFAR-100 九組已完成並通過比較驗證，共 27 組完成實驗。請見[跨資料集整合結果](cross_dataset_results.md)。下方先前日期的執行紀錄保留作歷史紀錄。
+
 # Validation protocol: completed experiments and current status
 
 ## Completed seed 42
@@ -75,3 +77,7 @@ See [research report](../../report/research_findings.md) for methods, results, p
 ## CIFAR-100 implementation ready (2026-09-15)
 
 The [transfer workflow](cifar100_execution.md) is implemented and passed 24 tests plus syntax checks. No new dataset was downloaded or scored in this step. Run preparation first, then the nine-run batch as documented. Completed experiment count remains 18 until those runs finish.
+
+## All experiments and report verification complete (2026-09-17)
+
+All 27 runs are now complete: 18 CIFAR-10 and nine CIFAR-100. The earlier sections above are chronological records. The [report](../../report/research_findings.md) now integrates both datasets, paired effects, figures and limitations. The [verification record](../../report/verification.md) documents successful reruns of the strict multi-seed check and cross-dataset analysis. No additional training is required for this report; the next step is reviewing the manuscript and selecting a submission format.

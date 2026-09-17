@@ -1,6 +1,8 @@
 # Data Augmentation for Visual Robustness
 
-Completed extension: [CutMix probability ablation results and next steps](notes/experiments/cutmix_probability_results.md). All three p=0.5 runs are complete; no retraining is needed. Implementation details: [change record](notes/experiments/cutmix_probability.md). Run `bash scripts/run_cutmix_p05.sh` in WSL for the three new p=0.5 seeds; existing controls are reused. New training runs preserve source archives and hashes in addition to Git metadata. See the record for historical provenance limitations.
+Latest status (2026-09-17): all 27 planned CIFAR-10/CIFAR-100 runs are complete. See the [research report](report/research_findings.md), [verification record](report/verification.md), and [cross-dataset findings](notes/experiments/cross_dataset_results.md). No additional training is required for the current report. Rebuild comparisons with `python3 -m scripts.compare_transfer`.
+
+Completed extension: [CutMix probability ablation results and next steps](notes/experiments/cutmix_probability_results.md). All three p=0.5 runs are complete; no retraining is needed. Implementation details: [change record](notes/experiments/cutmix_probability.md). The WSL workflow `bash scripts/run_cutmix_p05.sh` reuses completed runs and rebuilds their plots. New training runs preserve source archives and hashes in addition to Git metadata. See the record for historical provenance limitations.
 
 ## Run the experiments (validation-v1)
 
@@ -36,7 +38,7 @@ All methods share a fixed 45,000/5,000 training/validation split controlled by v
 
 Corruption evaluation records the checkpoint SHA-256 and CSV hashes. Comparison scripts reject missing provenance or changed files/checkpoints; reevaluate a checkpoint to create valid metadata. A run must finish clean evaluation before corruption evaluation. Do not train into or replace a checkpoint while evaluating it.
 
-The Current Results table below now reports the completed validation-protocol runs across seeds 42, 43 and 44. Historical test-selected results remain in notes/experiments/phase1_summary.md and must not be pooled with these results. Replication across seeds 43 and 44 is complete with hyperparameters unchanged. The next stage analyzes corruption categories and severity. See [the multi-seed plan](notes/experiments/validation_summary.md). Run `bash scripts/run_multiseed.sh` in WSL to reproduce the batch workflow; all 15 planned runs are now complete, so no retraining is needed. AugMix seed 42 uses run ID validation-v2; this is a retry name, not a different evaluation protocol.
+The Current Results table below now reports the completed validation-protocol runs across seeds 42, 43 and 44. Historical test-selected results remain in notes/experiments/phase1_summary.md and must not be pooled with these results. Replication across seeds 43 and 44 is complete with hyperparameters unchanged. Corruption-category, severity and cross-dataset analyses are also complete. See [the multi-seed plan](notes/experiments/validation_summary.md). Run `bash scripts/run_multiseed.sh` in WSL to reproduce the batch workflow; all 15 planned runs are now complete, so no retraining is needed. AugMix seed 42 uses run ID validation-v2; this is a retry name, not a different evaluation protocol.
 
 > **Status:** Ongoing Independent Research Project
 > **Topic:** Computer Vision / Deep Learning / Model Robustness / Data Augmentation
@@ -49,7 +51,7 @@ Data augmentation is widely used to improve model generalization. However, diffe
 
 This project begins with a **reproducibility study** of existing data augmentation methods and investigates how different augmentation strategies affect the corruption robustness of image classification models.
 
-The project will first reproduce and compare established methods. Based on the experimental observations and related literature, a more specific research question or extension will be developed in a later stage.
+The controlled comparison, CutMix probability analysis, and CIFAR-100 validation are complete. The roadmap below preserves the original project scope; the report and verification record above describe the current evidence.
 
 ---
 
@@ -560,9 +562,9 @@ The current results suggest that AugMix Transform provides the strongest corrupt
 
 ## Research report and proposed validation
 
-The [research report](report/research_findings.md) consolidates the 18 completed CIFAR-10 runs. The [CIFAR-100 transfer validation plan](notes/experiments/transfer_validation_plan.md) is a proposal only: implementation is complete and tested; the nine new training runs have not started. See [CIFAR-100 execution instructions](notes/experiments/cifar100_execution.md).
+The [research report](report/research_findings.md) consolidates all 27 completed runs: 18 on CIFAR-10 and nine on CIFAR-100. The [CIFAR-100 transfer validation plan](notes/experiments/transfer_validation_plan.md) records the design; execution and analysis are complete. See [CIFAR-100 execution instructions](notes/experiments/cifar100_execution.md) and the [verification record](report/verification.md).
 
-### CIFAR-100 transfer workflow (ready, not yet trained)
+### CIFAR-100 transfer workflow (completed; commands retained for reproduction)
 
 In WSL from the repository root, run each command only after the previous succeeds:
 

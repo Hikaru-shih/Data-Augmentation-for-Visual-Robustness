@@ -1,0 +1,16 @@
+method,seed,run,clean_accuracy,mca
+baseline,42,baseline_resnet18/seed_42/validation-v1,94.09,73.73253333333334
+baseline,43,baseline_resnet18/seed_43/validation-v1,94.32,73.86053333333332
+baseline,44,baseline_resnet18/seed_44/validation-v1,94.85,73.36280000000001
+mixup,42,mixup_resnet18/seed_42/validation-v1,95.23,79.09853333333334
+mixup,43,mixup_resnet18/seed_43/validation-v1,95.43,77.8876
+mixup,44,mixup_resnet18/seed_44/validation-v1,95.14,78.61893333333335
+cutmix,42,cutmix_resnet18/seed_42/validation-v1,95.72,70.72973333333333
+cutmix,43,cutmix_resnet18/seed_43/validation-v1,95.82,71.05466666666666
+cutmix,44,cutmix_resnet18/seed_44/validation-v1,95.77,71.63973333333335
+randaugment,42,randaugment_resnet18/seed_42/validation-v1,94.99,81.20573333333333
+randaugment,43,randaugment_resnet18/seed_43/validation-v1,94.97,81.07693333333333
+randaugment,44,randaugment_resnet18/seed_44/validation-v1,95.14,81.71813333333333
+augmix,42,augmix_resnet18/seed_42/validation-v2,95.05,85.89026666666665
+augmix,43,augmix_resnet18/seed_43/validation-v1,94.53,85.00093333333332
+augmix,44,augmix_resnet18/seed_44/validation-v1,94.91,85.45373333333333
