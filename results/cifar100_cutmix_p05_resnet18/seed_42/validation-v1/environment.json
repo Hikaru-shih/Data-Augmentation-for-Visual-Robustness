@@ -1,0 +1,9 @@
+{
+  "python": "3.10.12",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "git_revision": "55f7dd071a2ff30d1d26c9080ae40034192b7bd0",
+  "git_status": " M README.md\n M configs/augmix.yaml\n M configs/baseline.yaml\n M configs/cifar100_baseline.yaml\n M configs/cifar100_cutmix.yaml\n M configs/cifar100_cutmix_p05.yaml\n M configs/cutmix.yaml\n M configs/cutmix_p05.yaml\n M configs/mixup.yaml\n M configs/randaugment.yaml\n M notes/experiments/phase1_summary.md\n M scripts/check_environment.py\n M scripts/compare_all_experiments.py\n M scripts/compare_experiments.py\n M scripts/evaluate_corruptions.py\n M scripts/evaluate_gaussian_noise.py\n M scripts/plot_history.py\n M scripts/plot_robustness.py\n M scripts/test_cifar10.py\n M scripts/test_cifar10c.py\n M scripts/test_config.py\n M scripts/test_model.py\n M src/augmentations/cutmix.py\n M src/augmentations/mixup.py\n M src/datasets/cifar10.py\n M src/datasets/cifar10c.py\n M src/evaluation/evaluator.py\n M src/models/resnet.py\n M src/training/cutmix_trainer.py\n M src/training/mixup_trainer.py\n M src/training/trainer.py\n M src/utils/config.py\n M src/utils/seed.py\n?? results/\n"
+}

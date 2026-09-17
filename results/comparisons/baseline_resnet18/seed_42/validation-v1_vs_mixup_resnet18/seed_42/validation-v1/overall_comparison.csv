@@ -1,0 +1,3 @@
+experiment,clean_accuracy,mca
+baseline_resnet18/seed_42/validation-v1,94.09,73.73253333333334
+mixup_resnet18/seed_42/validation-v1,95.23,79.09853333333334

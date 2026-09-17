@@ -1,0 +1,30 @@
+augmentation:
+  magnitude: 9
+  name: randaugment
+  num_ops: 2
+dataset:
+  data_dir: ./data
+  name: cifar10
+  num_classes: 10
+experiment:
+  name: randaugment_resnet18
+model:
+  name: resnet18
+optimizer:
+  learning_rate: 0.1
+  momentum: 0.9
+  name: sgd
+  weight_decay: 0.0005
+run:
+  key: randaugment_resnet18/seed_42/validation-v1
+  protocol: validation-v1
+  selection: validation_accuracy
+scheduler:
+  name: cosine
+seed: 42
+training:
+  batch_size: 128
+  epochs: 100
+validation:
+  seed: 2026
+  size: 5000

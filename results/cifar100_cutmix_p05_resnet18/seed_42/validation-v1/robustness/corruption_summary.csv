@@ -1,0 +1,17 @@
+corruption,mean_accuracy
+gaussian_noise,17.907999999999998
+shot_noise,25.912
+impulse_noise,29.662000000000006
+defocus_blur,60.028
+glass_blur,22.235999999999997
+motion_blur,54.10799999999999
+zoom_blur,52.186
+snow,57.24399999999999
+frost,47.977999999999994
+fog,63.784000000000006
+brightness,73.666
+contrast,56.146
+elastic_transform,61.263999999999996
+pixelate,46.964
+jpeg_compression,47.946
+overall_mean,47.80213333333334

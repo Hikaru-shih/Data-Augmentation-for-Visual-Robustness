@@ -1,0 +1,6 @@
+method,clean_accuracy,mca
+baseline_resnet18/seed_42/validation-v1,94.09,73.73253333333334
+mixup_resnet18/seed_42/validation-v1,95.23,79.09853333333334
+cutmix_resnet18/seed_42/validation-v1,95.72,70.72973333333333
+randaugment_resnet18/seed_42/validation-v1,94.99,81.20573333333333
+augmix_resnet18/seed_42/validation-v2,95.05,85.89026666666665

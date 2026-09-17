@@ -1,0 +1,6 @@
+{
+  "epoch": 94,
+  "validation_accuracy": 96.06,
+  "test_accuracy": 94.97,
+  "test_loss": 0.17604479870796202
+}

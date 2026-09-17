@@ -1,0 +1,45 @@
+augmentation:
+  alpha: 1.0
+  name: cutmix
+  probability: 0.5
+dataset:
+  corruption_dir: ./data/CIFAR-100-C
+  data_dir: ./data
+  name: cifar100
+  normalization:
+    ddof: 0
+    mean:
+    - 0.5070335546875004
+    - 0.48650878599877423
+    - 0.44085642590890495
+    source: training_split
+    std:
+    - 0.26724461427307794
+    - 0.25633167646877475
+    - 0.27604058703254986
+  num_classes: 100
+  training_data_sha256: f062ca493c4d44a3d0921f223fbc3b1e88b46fd03322e97c635a0ac2a5f8baab
+experiment:
+  name: cifar100_cutmix_p05_resnet18
+model:
+  name: resnet18
+optimizer:
+  learning_rate: 0.1
+  momentum: 0.9
+  name: sgd
+  weight_decay: 0.0005
+run:
+  key: cifar100_cutmix_p05_resnet18/seed_43/validation-v1
+  protocol: cifar100-transfer-v1
+  selection: validation_accuracy
+  source_sha256: e63956324538099a29315a3e7ffd3bb3cb60423972882c195fdb8d16bb1cec51
+scheduler:
+  name: cosine
+seed: 43
+training:
+  batch_size: 128
+  epochs: 100
+validation:
+  seed: 2026
+  size: 5000
+  strategy: stratified

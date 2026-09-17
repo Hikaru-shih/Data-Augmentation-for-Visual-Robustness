@@ -1,0 +1,9 @@
+{
+  "checkpoint_sha256": "c8c500ea42ad06d7885497a146de8170e371a7506b0822d51579f815e607e851",
+  "epoch": 97,
+  "protocol": "validation-v1",
+  "files": {
+    "corruption_results.csv": "12d6b3dfb8999df2b2bf50bc139810374014795158f568caed3aa62ff8de1c84",
+    "corruption_summary.csv": "42067bd85855493de479c50c97b95f8d46f315e3e37cb325da7363bdde1723c8"
+  }
+}

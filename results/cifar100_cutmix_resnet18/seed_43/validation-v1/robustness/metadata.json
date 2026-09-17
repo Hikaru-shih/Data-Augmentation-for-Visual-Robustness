@@ -1,0 +1,28 @@
+{
+  "checkpoint_sha256": "db98382d90943610868163bca67bfe7038c5c62da90a0b07f94c8d7bc7e6f98c",
+  "dataset": "cifar100",
+  "data_sha256": {
+    "labels.npy": "9185b22b619b6334e3d9864aec5dcb9eb0db8710da91245c0afbe6d4e7db9431",
+    "gaussian_noise.npy": "776391036473e944144809983ce9cb0c7831593e84a1be7cf29ccc72f194a120",
+    "shot_noise.npy": "4d661214412045f79fdbc8a5095506e8682a883bcb61693dc17b48a9f7d7a51b",
+    "impulse_noise.npy": "7dcf455178224fb63c956d2f2bd50c1da71c57671ac7f7238610752f91a23e84",
+    "defocus_blur.npy": "134ab1cb3765e4551b7ee121f099c8dafb88c096f45deee5bee98e96a16c0d61",
+    "glass_blur.npy": "4c612859c74e1cf1751763eddaaf55e742650f4f9c67b8321faf47e524707d5b",
+    "motion_blur.npy": "cb2d7dc6dcbabf3f0ac198397186846ec57985a6c4f4dab10999f17835555233",
+    "zoom_blur.npy": "f0c746dec1c23438fa4e22a90e18eed7b6b96b71fd35776cad709b163bef0a56",
+    "snow.npy": "359b96dc23af57c3210fefbd37a007576e8190ac492881920d475517e0ee5647",
+    "frost.npy": "9ca999b14435f20b60412cdf9c4d054bad563d656d80cf71795f0a9a3d2271d2",
+    "fog.npy": "0a8c65f809028fd7867271988932477e3efb7d781a367927f28674076389bc20",
+    "brightness.npy": "5a81b1cb9365e6ce853fca57740a4156c6b724e97d95b0673df3820ee2056ab9",
+    "contrast.npy": "a838439f52a70006cf20825ef78c59b25574ff77689a97f69056df50e272dddb",
+    "elastic_transform.npy": "690437cd574582378fbd57b25923b87d39f7069166e7a319beec6e5b612e2aab",
+    "pixelate.npy": "4fa41f887ffeccc2ab0c3c235345c8dfd8e19d0fcb3cd104d5a274d5ba4d337d",
+    "jpeg_compression.npy": "97d3e7fa79f231b4423901965a8f7a992e22831e99735e7cd3bb8bdfbd3ab892"
+  },
+  "epoch": 96,
+  "protocol": "cifar100-transfer-v1",
+  "files": {
+    "corruption_results.csv": "66a415cf6a1d13d3294b865b8be9c702f039e9a348746edca1ded050b01c2ec5",
+    "corruption_summary.csv": "b582a4168d361389fbcd2bafb6057a7cafd1460fb81ea34e84cca5108becf8cf"
+  }
+}

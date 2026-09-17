@@ -1,0 +1,9 @@
+{
+  "python": "3.10.12",
+  "torch": "2.6.0+cu124",
+  "torchvision": "0.21.0+cu124",
+  "cuda": "12.4",
+  "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "git_revision": "ac3427b41ff4b49a9019689daa83e1bd2f86ac3c",
+  "git_status": "M  .gitignore\nMM README.md\nAM configs/augmix.yaml\nAM configs/baseline.yaml\nAM configs/cutmix.yaml\nAM configs/mixup.yaml\nAM configs/randaugment.yaml\nA  notes/experiments/legacy_environment_freeze.txt\nAM notes/experiments/phase1_summary.md\nA  requirements.txt\nAM scripts/check_environment.py\nAM scripts/compare_all_experiments.py\nAM scripts/compare_experiments.py\nAM scripts/evaluate_corruptions.py\nAM scripts/evaluate_gaussian_noise.py\nAM scripts/plot_history.py\nAM scripts/plot_robustness.py\nAM scripts/test_cifar10.py\nAM scripts/test_cifar10c.py\nAM scripts/test_config.py\nAM scripts/test_model.py\nA  scripts/train.py\nA  scripts/train_augmix.py\nA  scripts/train_baseline.py\nA  scripts/train_cutmix.py\nA  scripts/train_mixup.py\nA  scripts/train_randaugment.py\nAM src/augmentations/cutmix.py\nAM src/augmentations/mixup.py\nAM src/datasets/cifar10.py\nAM src/datasets/cifar10c.py\nA  src/datasets/splits.py\nAM src/evaluation/evaluator.py\nAM src/models/resnet.py\nAM src/training/cutmix_trainer.py\nAM src/training/mixup_trainer.py\nAM src/training/trainer.py\nA  src/utils/__init__.py\nAM src/utils/config.py\nA  src/utils/runs.py\nAM src/utils/seed.py\nA  tests/test_pipeline.py\n?? notes/experiments/validation_summary.md\n?? results/\n?? scripts/run_multiseed.sh\n?? scripts/summarize_multiseed.py\n?? tests/test_multiseed.py\n"
+}
