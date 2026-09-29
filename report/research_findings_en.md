@@ -182,8 +182,7 @@ Future work could specify a second architecture, more distinct data sources, and
 ## 7. References
 
 References below identify the works cited in the text and link to their original sources. Software documentation specifies the version used.
-
-1. Zhang, H., Cisse, M., Dauphin, Y. N., and Lopez-Paz, D. (2017). [mixup: Beyond Empirical Risk Minimization](https://arxiv.org/abs/1710.09412). arXiv:1710.09412.
+1. Kurioka, T., et al. (2024). Transferring Teacher's Invariance to Student Through Data Augmentation Optimization. International Conference on Neural Information Processing (ICONIP 2024).
 2. Yun, S., Han, D., Oh, S. J., Chun, S., Choe, J., and Yoo, Y. (2019). [CutMix: Regularization Strategy to Train Strong Classifiers with Localizable Features](https://arxiv.org/abs/1905.04899). arXiv:1905.04899.
 3. Cubuk, E. D., Zoph, B., Shlens, J., and Le, Q. V. (2019). [RandAugment: Practical automated data augmentation with a reduced search space](https://arxiv.org/abs/1909.13719). arXiv:1909.13719.
 4. Hendrycks, D., Mu, N., Cubuk, E. D., Zoph, B., Gilmer, J., and Lakshminarayanan, B. (2019). [AugMix: A Simple Data Processing Method to Improve Robustness and Uncertainty](https://arxiv.org/abs/1912.02781). arXiv:1912.02781.
@@ -191,6 +190,7 @@ References below identify the works cited in the text and link to their original
 6. Clova AI. [CutMix-PyTorch](https://github.com/clovaai/CutMix-PyTorch). Official implementation repository.
 7. [IPMix supplementary material](https://proceedings.neurips.cc/paper_files/paper/2023/file/c917d8b9e01427f3184d80ade22f4d1f-Supplemental-Conference.pdf). (2023). NeurIPS, Section F.
 8. Hendrycks et al. [robustness](https://github.com/hendrycks/robustness). Official benchmark data and implementation repository.
+9. Zhang, H., Cisse, M., Dauphin, Y. N., and Lopez-Paz, D. (2017). [mixup: Beyond Empirical Risk Minimization](https://arxiv.org/abs/1710.09412). arXiv:1710.09412.
 
 ## Appendix A: Data Sources
 
